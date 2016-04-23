@@ -27,7 +27,7 @@ module.exports = function(url, opts) {
 	var readPlaylist = function(playlistUrl, callback) {
 		var ts = [];
 		request(playlistUrl, {agent:agent}, function(err, response) {
-			if (response.statusCode !== 200) return callback();
+			if (response === undefined || response.statusCode !== 200) return callback();
 
 			var body = response.body.toString().trim();
 
